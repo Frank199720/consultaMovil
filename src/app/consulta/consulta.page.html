@@ -1,0 +1,66 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Consutas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  
+     
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Consulta DNI/RUC</ion-card-title>
+            
+          </ion-card-header>
+          <ion-card-content>
+            <ion-item>
+              <ion-label style="font-size: small" position="floating">Número DOI</ion-label
+                >
+                <ion-input [(ngModel)]="doi" type="text"></ion-input>
+                
+              <ion-button slot="end" color="success" (click)="consulta()"> <ion-icon name="search"></ion-icon
+              ></ion-button>
+            </ion-item>
+          </ion-card-content>
+        </ion-card>
+        
+          
+      <ion-card *ngIf="viewResult">
+        <ion-card-header>
+          <ion-card-title>Resultados</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-list>
+            <ion-label>
+              <h2>Nombre</h2>
+              <p>{{person.nombre_completo}}</p>
+            </ion-label>
+            <ion-label>
+              <h2>Departamento</h2>
+              <p>{{person.departamento}}</p>
+            </ion-label>
+            <ion-label>
+              <h2>Provincia</h2>
+              <p>{{person.provincia}}</p>
+            </ion-label>
+            <ion-label>
+              <h2>Distrito</h2>
+              <p>{{person.distrito}}</p>
+            </ion-label>
+            <ion-label>
+              <h2>Dirección</h2>
+              <p>{{person.direccion}}</p>
+            </ion-label>
+            <ion-item>
+
+              <ion-button color="warning"  slot="end" (click)="refresh()">Limpiar</ion-button>
+            </ion-item>
+          </ion-list>
+        </ion-card-content>
+      </ion-card>
+      
+    
+</ion-content>
